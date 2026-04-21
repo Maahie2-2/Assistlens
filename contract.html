@@ -61,6 +61,7 @@
     }
     .btn-share { background: #0066cc; color: white; }
     .btn-print { background: var(--accent); color: white; }
+    .no-print { display: block; } /* Visible on screen */
 
     /* ── Contract Paper ── */
     .contract {
@@ -145,7 +146,7 @@
 
     @media print {
       body { background: white; padding: 0; margin: 0; }
-      .instructions, .btn { display: none !important; }
+      .instructions, .btn, .no-print { display: none !important; }
       .contract { box-shadow: none; padding: 40px 60px; max-width: 100%; }
       .section { page-break-inside: avoid; }
     }
@@ -339,8 +340,11 @@
         <input type="checkbox" id="client-accept" />
         <span style="font-weight: 600;">I Accept all terms and conditions of this agreement.</span>
       </label>
-      <div id="client-info-fields" style="display: none; margin-top: 10px; color: var(--accent); font-style: italic;">
-        Accepted on <span id="accepted-date"></span>
+
+      <div id="client-actions" style="display: none; margin-top: 20px; border-top: 1px solid var(--gray-medium); padding-top: 20px;">
+        <p style="font-size: 0.85rem; color: var(--accent); font-style: italic; margin-bottom: 15px;">Accepted on <span id="accepted-date"></span></p>
+        <button class="btn btn-print no-print" onclick="window.print()" style="width: 100%; padding: 15px; font-size: 0.9rem;">Download / Save PDF Agreement</button>
+        <p style="font-size: 0.75rem; color: var(--gray-dark); margin-top: 10px;">(After clicking, choose "Save as PDF" as your printer)</p>
       </div>
     </div>
 
@@ -380,7 +384,7 @@
           }
         });
         document.getElementById('client-accept').addEventListener('change', function() {
-          document.getElementById('client-info-fields').style.display = this.checked ? 'block' : 'none';
+          document.getElementById('client-actions').style.display = this.checked ? 'block' : 'none';
           document.getElementById('accepted-date').innerText = new Date().toLocaleDateString();
         });
       }
