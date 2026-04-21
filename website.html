@@ -3,14 +3,13 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTMN7MHZL9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MTMN7MHZL9');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBN4LR1Q23"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-RBN4LR1Q23');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="theme-color" content="#FFFFFF">
@@ -73,6 +72,10 @@
             padding: 0 4rem;
         }
 
+        @media (max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+        }
+
         /* Navigation - Modified for White Theme */
         nav {
             position: fixed;
@@ -130,9 +133,14 @@
         }
 
         @media (max-width: 1024px) {
-            nav { padding: 2rem; }
+            nav { padding: 1.5rem 2rem; }
             .nav-links { display: none; }
             .menu-trigger { display: block; }
+            .logo { font-size: 1.35rem; }
+        }
+
+        @media (max-width: 480px) {
+            nav { padding: 1.25rem 1.5rem; }
         }
 
         /* Hero */
@@ -165,12 +173,23 @@
         }
 
         @media (max-width: 1024px) {
+            .hero { padding: 10rem 0 5rem; }
+            .hero h1 { font-size: 3.5rem; }
             .work-grid { grid-template-columns: 1fr; gap: 4rem; }
         }
 
         @media (max-width: 768px) {
-            .container { padding: 0 2rem; }
-            .hero h1 { font-size: 3rem; }
+            .hero { padding: 8rem 0 4rem; }
+            .hero h1 { font-size: clamp(2rem, 10vw, 3rem); line-height: 1.1; }
+            .hero p { font-size: 1.1rem; }
+            .work-section { padding-bottom: 6rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 7rem 0 3rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .work-grid { gap: 3rem; }
         }
 
         .work-card {
@@ -178,15 +197,26 @@
             background: #fff;
             border-radius: 20px;
             overflow: hidden;
-            aspect-ratio: 16/9;
-            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.15);
+            aspect-ratio: 16/10;
+            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.1);
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid var(--gray-medium);
+            display: flex;
+            flex-direction: column;
         }
 
-        .work-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.2);
+        @media (max-width: 768px) {
+            .work-card {
+                aspect-ratio: 4/3;
+                border-radius: 15px;
+            }
+        }
+
+        @media (hover: hover) {
+            .work-card:hover {
+                transform: translateY(-15px) scale(1.02);
+                box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15);
+            }
         }
         
         /* Add a simulated browser header for aesthetics */
@@ -214,9 +244,32 @@
 
         .website-iframe {
             width: 100%;
-            height: calc(100% - 40px); /* Adjust for browser header */
+            flex-grow: 1;
             border: none;
             display: block;
+        }
+
+        /* Direct link for mobile accessibility */
+        .visit-link {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 10px 20px rgba(122, 0, 22, 0.2);
+            z-index: 10;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .visit-link { display: block; }
         }
 
         /* Footer */
@@ -225,6 +278,10 @@
             background: var(--white);
             border-top: 1px solid var(--gray-medium);
             text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            footer { padding: 4rem 0 3rem; }
         }
 
         .footer-social {
@@ -295,9 +352,19 @@
 
         .overlay-link {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 8vw, 3rem);
             color: var(--black);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .overlay-link:hover {
+            color: var(--accent);
+        }
+
+        .overlay-link.active {
+            color: var(--accent);
         }
     </style>
 </head>
@@ -344,6 +411,7 @@
                         <div class="browser-dot"></div>
                     </div>
                     <iframe class="website-iframe" src="https://briars-photography.pages.dev/"></iframe>
+                    <a href="https://briars-photography.pages.dev/" target="_blank" class="visit-link">Visit Site <i class="fas fa-external-link-alt" style="margin-left: 5px; font-size: 0.8em;"></i></a>
                 </div>
 
                 <!-- Website 2 -->
@@ -354,6 +422,7 @@
                         <div class="browser-dot"></div>
                     </div>
                     <iframe class="website-iframe" src="https://fotographybya.pages.dev/"></iframe>
+                    <a href="https://fotographybya.pages.dev/" target="_blank" class="visit-link">Visit Site <i class="fas fa-external-link-alt" style="margin-left: 5px; font-size: 0.8em;"></i></a>
                 </div>
 
                 <!-- Website 3 -->
@@ -364,6 +433,7 @@
                         <div class="browser-dot"></div>
                     </div>
                     <iframe class="website-iframe" src="https://mirrored-mementos.pages.dev/"></iframe>
+                    <a href="https://mirrored-mementos.pages.dev/" target="_blank" class="visit-link">Visit Site <i class="fas fa-external-link-alt" style="margin-left: 5px; font-size: 0.8em;"></i></a>
                 </div>
 
                 <!-- Website 4 -->
@@ -374,6 +444,7 @@
                         <div class="browser-dot"></div>
                     </div>
                     <iframe class="website-iframe" src="https://madame-d-photography.pages.dev/"></iframe>
+                    <a href="https://madame-d-photography.pages.dev/" target="_blank" class="visit-link">Visit Site <i class="fas fa-external-link-alt" style="margin-left: 5px; font-size: 0.8em;"></i></a>
                 </div>
 
             </div>
