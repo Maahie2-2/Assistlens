@@ -205,14 +205,14 @@
     <div class="section">
       <div class="section-title"><span class="section-num">02</span> Scope of Work</div>
       <ul class="scope-list">
-        <li><input type="checkbox" checked /><span>Custom website design &amp; development</span></li>
-        <li><input type="checkbox" checked /><span>Mobile-responsive layout</span></li>
-        <li><input type="checkbox" checked /><span>Inquiry / contact form setup</span></li>
-        <li><input type="checkbox" checked /><span>Image &amp; content integration</span></li>
-        <li><input type="checkbox" /><span>Basic SEO setup</span></li>
-        <li><input type="checkbox" /><span>Gallery / portfolio pages</span></li>
-        <li><input type="checkbox" /><span>Blog setup</span></li>
-        <li><input type="checkbox" /><span>E-commerce / booking integration</span></li>
+        <li><input type="checkbox" id="scope-0" checked /><span>Custom website design &amp; development</span></li>
+        <li><input type="checkbox" id="scope-1" checked /><span>Mobile-responsive layout</span></li>
+        <li><input type="checkbox" id="scope-2" checked /><span>Inquiry / contact form setup</span></li>
+        <li><input type="checkbox" id="scope-3" checked /><span>Image &amp; content integration</span></li>
+        <li><input type="checkbox" id="scope-4" /><span>Basic SEO setup</span></li>
+        <li><input type="checkbox" id="scope-5" /><span>Gallery / portfolio pages</span></li>
+        <li><input type="checkbox" id="scope-6" /><span>Blog setup</span></li>
+        <li><input type="checkbox" id="scope-7" /><span>E-commerce / booking integration</span></li>
       </ul>
       <div class="field-row full">
         <div class="field">
@@ -360,12 +360,16 @@
     document.getElementById('current-date').innerText = now;
 
     const fields = ['field-id', 'field-client-name', 'field-studio', 'field-client-email', 'field-project-name', 'field-scope-notes', 'field-start', 'field-draft', 'field-final', 'field-total-cost', 'field-deposit', 'field-balance', 'field-rev-rounds', 'field-rev-rate', 'field-retainer', 'field-support'];
+    const checkboxIds = ['scope-0', 'scope-1', 'scope-2', 'scope-3', 'scope-4', 'scope-5', 'scope-6', 'scope-7'];
 
     function generateLink() {
       const p = new URLSearchParams();
       fields.forEach(id => {
         const el = document.getElementById(id);
         p.set(id, el.value || (el.innerText && el.contentEditable==='true' ? el.innerText : ''));
+      });
+      checkboxIds.forEach(id => {
+        p.set(id, document.getElementById(id).checked ? '1' : '0');
       });
       p.set('mode', 'client');
       const url = window.location.origin + window.location.pathname + '?' + p.toString();
@@ -382,6 +386,10 @@
             const el = document.getElementById(id);
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.value = v; else el.innerText = v;
           }
+        });
+        checkboxIds.forEach(id => {
+          const v = p.get(id);
+          if (v !== null) document.getElementById(id).checked = (v === '1');
         });
         document.getElementById('client-accept').addEventListener('change', function() {
           document.getElementById('client-actions').style.display = this.checked ? 'block' : 'none';
