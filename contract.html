@@ -363,38 +363,62 @@
     const checkboxIds = ['scope-0', 'scope-1', 'scope-2', 'scope-3', 'scope-4', 'scope-5', 'scope-6', 'scope-7'];
 
     function generateLink() {
-      const p = new URLSearchParams();
+      const data = {
+        mode: 'client',
+        f: {}, // fields
+        c: {}  // checkboxes
+      };
+
       fields.forEach(id => {
         const el = document.getElementById(id);
-        p.set(id, el.value || (el.innerText && el.contentEditable==='true' ? el.innerText : ''));
+        data.f[id] = el.value || (el.innerText && el.contentEditable==='true' ? el.innerText : '');
       });
       checkboxIds.forEach(id => {
-        p.set(id, document.getElementById(id).checked ? '1' : '0');
+        data.c[id] = document.getElementById(id).checked ? 1 : 0;
       });
-      p.set('mode', 'client');
-      const url = window.location.origin + window.location.pathname + '?' + p.toString();
-      navigator.clipboard.writeText(url).then(() => alert("Link Copied! Send this to your client."));
+
+      // Encode everything into a single "clean" string
+      const jsonStr = JSON.stringify(data);
+      const encoded = btoa(unescape(encodeURIComponent(jsonStr)));
+      
+      const url = window.location.origin + window.location.pathname + '?agreement=' + encoded;
+      navigator.clipboard.writeText(url).then(() => alert("Client Link Copied! The link is now shorter and cleaner."));
     }
 
     window.addEventListener('load', () => {
       const p = new URLSearchParams(window.location.search);
-      if (p.get('mode') === 'client') {
-        document.body.classList.add('is-client');
-        fields.forEach(id => {
-          const v = p.get(id);
-          if (v) {
-            const el = document.getElementById(id);
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.value = v; else el.innerText = v;
+      const token = p.get('agreement');
+      
+      if (token) {
+        try {
+          const decoded = JSON.parse(decodeURIComponent(escape(atob(token))));
+          
+          if (decoded.mode === 'client') {
+            document.body.classList.add('is-client');
+            
+            // Restore fields
+            for (const id in decoded.f) {
+              const el = document.getElementById(id);
+              if (el) {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.value = decoded.f[id]; 
+                else el.innerText = decoded.f[id];
+              }
+            }
+            
+            // Restore checkboxes
+            for (const id in decoded.c) {
+              const el = document.getElementById(id);
+              if (el) el.checked = (decoded.c[id] === 1);
+            }
+
+            document.getElementById('client-accept').addEventListener('change', function() {
+              document.getElementById('client-actions').style.display = this.checked ? 'block' : 'none';
+              document.getElementById('accepted-date').innerText = new Date().toLocaleDateString();
+            });
           }
-        });
-        checkboxIds.forEach(id => {
-          const v = p.get(id);
-          if (v !== null) document.getElementById(id).checked = (v === '1');
-        });
-        document.getElementById('client-accept').addEventListener('change', function() {
-          document.getElementById('client-actions').style.display = this.checked ? 'block' : 'none';
-          document.getElementById('accepted-date').innerText = new Date().toLocaleDateString();
-        });
+        } catch (e) {
+          console.error("Invalid agreement link", e);
+        }
       }
     });
   </script>
