@@ -3,13 +3,14 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBN4LR1Q23"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTMN7MHZL9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-RBN4LR1Q23');
+        gtag('config', 'G-MTMN7MHZL9');
+    </script>
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
@@ -308,10 +309,10 @@
 
         .hero h1 {
             font-family: 'Inter', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.1;
-            letter-spacing: 0.05em;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            letter-spacing: 0.03em;
             color: var(--white);
             font-weight: 500;
             text-transform: uppercase;
@@ -400,17 +401,19 @@
 
         .portfolio-frame {
             background-color: #000;
-            width: 393px; /* Standard iPhone 14/15 Pro width */
+            width: 393px;
+            /* Standard iPhone 14/15 Pro width */
             max-width: 100%;
-            aspect-ratio: 9/19.5; /* Modern aspect ratio */
+            aspect-ratio: 9/19.5;
+            /* Modern aspect ratio */
             height: auto;
             margin: 0 auto;
             border-radius: 54px;
             border: 12px solid #1a1a1a;
-            box-shadow: 
+            box-shadow:
                 0 0 0 2px #333,
-                0 50px 100px -20px rgba(0,0,0,0.5),
-                0 30px 60px -30px rgba(0,0,0,0.6);
+                0 50px 100px -20px rgba(0, 0, 0, 0.5),
+                0 30px 60px -30px rgba(0, 0, 0, 0.6);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -445,10 +448,10 @@
 
         .portfolio-frame:hover {
             transform: translateY(-20px) scale(1.02);
-            box-shadow: 
+            box-shadow:
                 0 0 0 2px #444,
-                0 60px 120px -20px rgba(0,0,0,0.6),
-                0 40px 80px -30px rgba(0,0,0,0.7);
+                0 60px 120px -20px rgba(0, 0, 0, 0.6),
+                0 40px 80px -30px rgba(0, 0, 0, 0.7);
         }
 
         /* Dynamic Island / Notch */
@@ -501,7 +504,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%);
             pointer-events: none;
             z-index: 15;
         }
@@ -536,7 +539,7 @@
             left: 0;
             width: 100%;
             height: 40%;
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
             z-index: 1;
         }
 
@@ -591,8 +594,10 @@
         }
 
         .website-iframe {
-            width: calc(100% + 18px); /* Hide scrollbar */
-            height: calc(100% + 40px); /* Extend height to bottom */
+            width: calc(100% + 18px);
+            /* Hide scrollbar */
+            height: calc(100% + 40px);
+            /* Extend height to bottom */
             border: none;
             display: none;
             background: #fff;
@@ -932,7 +937,7 @@
             }
 
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 1.8rem;
             }
 
             .hero p {
@@ -952,8 +957,8 @@
             }
 
             .hero h1 {
-                font-size: 2.8rem;
-                letter-spacing: -1px;
+                font-size: 1.6rem;
+                letter-spacing: 0;
             }
 
             .hero p {
@@ -1038,8 +1043,8 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
-                letter-spacing: -0.5px;
+                font-size: 1.5rem;
+                letter-spacing: 0;
             }
 
             .hero p {
@@ -1238,6 +1243,7 @@
                 display: inline;
             }
         }
+
         .hero-description {
             margin-bottom: 4rem;
         }
@@ -1267,9 +1273,11 @@
             .hero h1 {
                 font-size: 3rem;
             }
+
             .hero-description {
                 margin-bottom: 3rem;
             }
+
             .cta-description {
                 margin: 1rem auto 3rem;
                 font-size: 1.1rem;
@@ -1288,6 +1296,28 @@
             letter-spacing: 0.2em;
             color: rgba(255, 255, 255, 0.6);
             font-weight: 700;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            width: max-content;
+            animation: marquee 40s linear infinite;
+        }
+
+        .marquee-content span {
+            padding-right: 4rem;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1299,40 +1329,59 @@
             }
         }
 
+        /* Problem Section */
+        .problem-section {
+            background-color: var(--white);
+            color: var(--black);
+            padding: 10rem 0;
+            border-top: 1px solid var(--gray-medium);
+        }
+
+        .problem-inner {
+            max-width: 780px;
+        }
+
+        .problem-body p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-kicker {
+            font-size: 1.25rem !important;
+            color: var(--black) !important;
+            font-weight: 500 !important;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem;
+            margin-top: 2.5rem !important;
+        }
+
+        @media (max-width: 768px) {
+            .problem-section {
+                padding: 5rem 0;
+            }
+
+            .problem-body p {
+                font-size: 1.05rem;
+            }
+        }
+
         .skills-layout {
             display: grid;
-            grid-template-columns: 1fr auto 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
             gap: 4rem;
-            align-items: center;
+            justify-items: center;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .skills-column {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-        }
-
-        .skills-column.left {
-            text-align: right;
-        }
-
-        .skills-column.right {
-            text-align: left;
-        }
-
         @media (max-width: 1024px) {
             .skills-layout {
-                grid-template-columns: 1fr;
                 gap: 4rem;
-            }
-            .skills-column.left,
-            .skills-column.right {
-                text-align: center;
-            }
-            .center-phone {
-                order: -1;
             }
         }
     </style>
@@ -1340,10 +1389,10 @@
 
 <body>
     <nav>
-        <a href="index.html" class="logo">Assistlens</a>
+        <a href="#" class="logo">Assistlens</a>
         <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
             <a href="seemywork.html" class="nav-link">Work</a>
+            <a href="website.html" class="nav-link">Websites</a>
             <a href="#how-it-works" class="nav-link">How It Works</a>
             <a href="#packages" class="nav-link">Pricing</a>
             <a href="#proposal" class="nav-link">Get Free Reel</a>
@@ -1351,10 +1400,11 @@
         <button class="menu-trigger" id="menu-open">MENU</button>
     </nav>
 
+    <!-- Mobile Overlay Navigation -->
     <div class="mobile-overlay" id="mobile-overlay">
         <button class="overlay-close" id="menu-close">CLOSE</button>
-        <a href="index.html" class="overlay-link">Home</a>
         <a href="seemywork.html" class="overlay-link">Work</a>
+        <a href="website.html" class="overlay-link">Websites</a>
         <a href="#how-it-works" class="overlay-link">How It Works</a>
         <a href="#packages" class="overlay-link">Pricing</a>
         <a href="#proposal" class="overlay-link">Get Free Reel</a>
@@ -1370,81 +1420,42 @@
         </div>
         <div class="container">
             <div class="hero-content fade-in">
-                <h1>Stop Losing Clients in Your DMs.</h1>
+                <h1>Your galleries are sitting there doing nothing.</h1>
                 <div class="hero-description">
-                    <p>Assistlens manages your inquiries and turns your photo galleries into content that actually brings bookings.</p>
+                    <p>Let's fix that. We turn your photos into reels that actually get you booked, then handle the DMs
+                        that follow.</p>
                 </div>
                 <div class="hero-btns">
-                    <a href="#proposal" class="btn">Get a Free Sample Reel</a>
-                    <a href="#how-it-works" class="btn"
-                        style="background-color: transparent; color: var(--white); border: 1px solid var(--white);">See How It Works</a>
+                    <a href="#proposal" class="btn"
+                        style="background-color: transparent; color: var(--white); border: 1px solid var(--white);">Get
+                        a Free Sample Reel</a>
                 </div>
                 <div class="marquee-wrap" style="color: var(--white); border: none;">
-                    “Built for photographers who are already in demand.”
+                    <div class="marquee-content">
+                        <span>Built for photographers who are already shooting great work, just not getting seen.</span>
+                        <span>Built for photographers who are already shooting great work, just not getting seen.</span>
+                        <span>Built for photographers who are already shooting great work, just not getting seen.</span>
+                        <span>Built for photographers who are already shooting great work, just not getting seen.</span>
+                    </div>
                 </div>
             </div>
         </div>
+        </div>
     </section>
 
-    <!-- Value Proposition Section -->
-    <section class="value-props">
-       <div class="container">
-
-            <p style="text-align: center; font-size: 1.1rem; color: var(--black); margin-bottom: 6rem; max-width: 900px; margin-left: auto; margin-right: auto; font-family: 'Sometype Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800;">
-                A system built specifically for working photographers
-            </p>
 
 
-            <div class="value-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem;">
-                <!-- Inquiry Management -->
-                <div class="value-card fade-in" style="text-align: left; padding: 0;">
-                    <span class="mono" style="color: var(--accent); margin-bottom: 1.25rem; display: block; font-weight: 700; font-size: 0.75rem;">01. Inquiry Management</span>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1.25rem; line-height: 1.25; min-height: 3.75rem;">We reply to every DM and email within the hour — in your voice, at your standard.</h3>
-                    
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; font-family: 'Sometype Mono', monospace; font-size: 0.75rem; color: var(--gray-dark); text-transform: uppercase;">
-                        <span>Instagram + Facebook DMs</span> <span style="color: var(--accent);">•</span>
-                        <span>Email enquiry handling</span> <span style="color: var(--accent);">•</span>
-                        <span>Lead qualification + follow-up</span> <span style="color: var(--accent);">•</span>
-                        <span>Weekly summary report</span>
-                    </div>
-
-                    <div style="background: var(--gray-light); padding: 0.75rem 1rem; border-left: 2px solid var(--accent); font-family: 'Sometype Mono', monospace; font-size: 0.8rem; font-weight: 700; color: var(--black); display: inline-block;">
-                        Avg. reply time: under 60 min
-                    </div>
-                </div>
-
-                <!-- Reel Creation -->
-                <div class="value-card fade-in" style="text-align: left; padding: 0;">
-                    <span class="mono" style="color: var(--accent); margin-bottom: 1.25rem; display: block; font-weight: 700; font-size: 0.75rem;">02. Reel Creation</span>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1.25rem; line-height: 1.25; min-height: 3.75rem;">Your galleries become short-form content that stops the scroll and drives enquiries.</h3>
-                    
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; font-family: 'Sometype Mono', monospace; font-size: 0.75rem; color: var(--gray-dark); text-transform: uppercase;">
-                        <span>POV-style reels (15–30 sec)</span> <span style="color: var(--accent);">•</span>
-                        <span>Trending audio matched to your work</span> <span style="color: var(--accent);">•</span>
-                        <span>Ready for IG, TikTok + Facebook</span> <span style="color: var(--accent);">•</span>
-                        <span>Draft approval before posting</span>
-                    </div>
-
-                    <div style="background: var(--gray-light); padding: 0.75rem 1rem; border-left: 2px solid var(--accent); font-family: 'Sometype Mono', monospace; font-size: 0.8rem; font-weight: 700; color: var(--black); display: inline-block;">
-                        From gallery to published in 48hrs
-                    </div>
-                </div>
-
-                <!-- Consistent Presence -->
-                <div class="value-card fade-in" style="text-align: left; padding: 0;">
-                    <span class="mono" style="color: var(--accent); margin-bottom: 1.25rem; display: block; font-weight: 700; font-size: 0.75rem;">03. Consistent Presence</span>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 1.25rem; line-height: 1.25; min-height: 3.75rem;">Your brand stays active between shoots — so you're never forgotten and always findable.</h3>
-                    
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; font-family: 'Sometype Mono', monospace; font-size: 0.75rem; color: var(--gray-dark); text-transform: uppercase;">
-                        <span>Scheduled posting cadence</span> <span style="color: var(--accent);">•</span>
-                        <span>FB group engagement</span> <span style="color: var(--accent);">•</span>
-                        <span>Caption + hashtag writing</span> <span style="color: var(--accent);">•</span>
-                        <span>Monthly performance recap</span>
-                    </div>
-
-                    <div style="background: var(--gray-light); padding: 0.75rem 1rem; border-left: 2px solid var(--accent); font-family: 'Sometype Mono', monospace; font-size: 0.8rem; font-weight: 700; color: var(--black); display: inline-block;">
-                        No ghosting. No gaps. No excuses.
-                    </div>
+    <!-- The Problem Section -->
+    <section id="how-it-works" class="problem-section">
+        <div class="container">
+            <div class="problem-inner fade-in">
+                <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 2rem; line-height: 1.1;">You're a great
+                    photographer.<br>You're just not posting.</h2>
+                <div class="problem-body">
+                    <p>Not because you don't want to. Because editing reels takes time you don't have, and you don't
+                        know what's trending, and by the time you sit down to do it, you're exhausted.</p>
+                    <p>So the gallery sits. The feed goes quiet. And the clients book someone else.</p>
+                    <p class="problem-kicker">That's the only thing standing between you and a full calendar.</p>
                 </div>
             </div>
         </div>
@@ -1453,87 +1464,73 @@
     <!-- Proof Section -->
     <section id="proof" class="portfolio" style="padding-top: 8rem;">
         <div class="container">
-            <h2 class="section-title">One phone. Real work. Clear skills.</h2>
-            
             <div class="skills-layout">
-                <!-- Left Skills -->
-                <div class="skills-column left">
-                    <!-- Skill 01 -->
-                    <div class="fade-in">
-                        <span class="mono" style="color: var(--accent); margin-bottom: 0.75rem; display: block; font-weight: 700;">Skill 01</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Reel editing</h3>
-                        <p style="color: var(--gray-dark); margin-bottom: 1rem; font-size: 1rem;">POV-style, 15–30 sec, cut to trending audio. Ready in 48hrs from your gallery.</p>
-                        <div style="font-family: 'Sometype Mono', monospace; font-size: 0.75rem; color: var(--black); font-weight: 700; text-transform: uppercase;">
-                            IG · TikTok · Facebook
-                        </div>
-                    </div>
-                    
-                    <!-- Skill 02 -->
-                    <div class="fade-in">
-                        <span class="mono" style="color: var(--accent); margin-bottom: 0.75rem; display: block; font-weight: 700;">Skill 02</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Caption + hashtag writing</h3>
-                        <p style="color: var(--gray-dark); margin-bottom: 1rem; font-size: 1rem;">Written in your tone. Optimised to reach your ideal client in your market.</p>
-                        <div style="font-family: 'Sometype Mono', monospace; font-size: 0.75rem; color: var(--black); font-weight: 700; text-transform: uppercase;">
-                            local location optimised
-                        </div>
+                <!-- Video 6 -->
+                <div class="portfolio-frame fade-in"
+                    style="width: 290px; border-radius: 40px; border-width: 10px; box-shadow: 0 40px 100px rgba(122, 0, 22, 0.15); margin: 0 auto;">
+                    <div class="frame-content ig-reel">
+                        <video autoplay muted loop playsinline class="reel-video"
+                            poster="https://res.cloudinary.com/dt4nfkb5u/video/upload/f_auto,q_auto,so_0/v1776583779/Pre-wedding_magic_qlicwr.jpg">
+                            <source
+                                src="https://res.cloudinary.com/dt4nfkb5u/video/upload/f_auto,q_auto/v1776583779/Pre-wedding_magic_qlicwr.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="reel-gradient"></div>
+                        <div class="frame-island" style="top: 10px; width: 70px; height: 18px;"></div>
+                        <div class="frame-home-bar" style="bottom: 8px; background: rgba(255, 255, 255, 0.5);"></div>
                     </div>
                 </div>
 
                 <!-- Center Phone -->
-                <div class="portfolio-frame center-phone fade-in" style="width: 290px; border-radius: 40px; border-width: 10px; box-shadow: 0 40px 100px rgba(122, 0, 22, 0.15); margin: 0 auto;">
+                <div class="portfolio-frame center-phone fade-in"
+                    style="width: 290px; border-radius: 40px; border-width: 10px; box-shadow: 0 40px 100px rgba(122, 0, 22, 0.15); margin: 0 auto;">
                     <div class="frame-content ig-reel">
                         <!-- VIDEO -->
                         <video autoplay muted loop playsinline class="reel-video">
-                            <source src="https://res.cloudinary.com/dt4nfkb5u/video/upload/v1775673451/pov_wbaqqv.mp4" type="video/mp4">
+                            <source src="https://res.cloudinary.com/dt4nfkb5u/video/upload/f_auto,q_auto/v1775673451/pov_wbaqqv.mp4" type="video/mp4" type="video/mp4">
                         </video>
-                    
+
                         <!-- GRADIENT OVERLAY -->
                         <div class="reel-gradient"></div>
-                    
+
                         <!-- RIGHT SIDE ACTIONS -->
                         <div class="reel-actions">
                             <div class="action">❤<span>1,842</span></div>
                             <div class="action">💬<span>48</span></div>
                             <div class="action">➤</div>
                         </div>
-                    
+
                         <!-- BOTTOM CAPTION -->
                         <div class="reel-caption">
                             <p><strong>@assistlens</strong> POV: I'm your wedding photographer</p>
                             <p class="reel-sub">Posted 2 days ago • 12 inquiries</p>
                         </div>
-                        
+
                         <div class="frame-island" style="top: 10px; width: 70px; height: 18px;"></div>
                         <div class="frame-home-bar" style="bottom: 8px; background: rgba(255, 255, 255, 0.5);"></div>
                     </div>
                 </div>
 
-                <!-- Right Skills -->
-                <div class="skills-column right">
-                    <!-- Skill 03 -->
-                    <div class="fade-in">
-                        <span class="mono" style="color: var(--accent); margin-bottom: 0.75rem; display: block; font-weight: 700;">Skill 03</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">DM + inbox management</h3>
-                        <p style="color: var(--gray-dark); margin-bottom: 1rem; font-size: 1rem;">Every enquiry replied to in under 60 min. In your voice. No opportunity missed.</p>
-                        <div style="font-family: 'Sometype Mono', monospace; font-size: 0.75rem; color: var(--black); font-weight: 700; text-transform: uppercase;">
-                            Avg. reply: under 60 min
-                        </div>
-                    </div>
-                    
-                    <!-- Skill 04 -->
-                    <div class="fade-in">
-                        <span class="mono" style="color: var(--accent); margin-bottom: 0.75rem; display: block; font-weight: 700;">Skill 04</span>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Lead qualification</h3>
-                        <p style="color: var(--gray-dark); margin-bottom: 1rem; font-size: 1rem;">We filter tyre-kickers from real clients and flag hot leads straight to you.</p>
-                        <div style="font-family: 'Sometype Mono', monospace; font-size: 0.75rem; color: var(--black); font-weight: 700; text-transform: uppercase;">
-                            Only real leads reach you
-                        </div>
+                <!-- Video 8 -->
+                <div class="portfolio-frame fade-in"
+                    style="width: 290px; border-radius: 40px; border-width: 10px; box-shadow: 0 40px 100px rgba(122, 0, 22, 0.15); margin: 0 auto;">
+                    <div class="frame-content ig-reel">
+                        <video autoplay muted loop playsinline class="reel-video"
+                            poster="https://res.cloudinary.com/dt4nfkb5u/video/upload/f_auto,q_auto,so_0/v1776714605/Memories_m3bhcg.jpg">
+                            <source
+                                src="https://res.cloudinary.com/dt4nfkb5u/video/upload/f_auto,q_auto/v1776714605/Memories_m3bhcg.mp4"
+                                type="video/mp4">
+                        </video>
+                        <div class="reel-gradient"></div>
+                        <div class="frame-island" style="top: 10px; width: 70px; height: 18px;"></div>
+                        <div class="frame-home-bar" style="bottom: 8px; background: rgba(255, 255, 255, 0.5);"></div>
                     </div>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 6rem;" class="fade-in">
-                <p style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-style: italic;">“Your work deserves to be seen and booked.”</p>
+                <p style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-style: italic;">“Your work
+                    deserves to be seen and booked.”</p>
             </div>
         </div>
     </section>
@@ -1544,17 +1541,18 @@
     <!-- Pricing Section -->
     <section id="packages" class="packages">
         <div class="container">
-            <h2 class="section-title">Simple pricing, no confusion</h2>
+            <h2 class="section-title"> Investment</h2>
             <div class="packages-grid">
                 <!-- Growth Starter -->
                 <div class="package-card fade-in">
                     <span class="package-name">Growth Starter</span>
                     <div class="package-price">
-                         £200<span style="font-size: 1rem; color: var(--gray-dark);">/mo</span>
+                        £200<span style="font-size: 1rem; color: var(--gray-dark);">/mo</span>
                     </div>
-                    <p style="font-size: 0.95rem; color: var(--gray-dark); margin-bottom: 2rem;">For photographers ready to stop missing opportunities.</p>
+                    <p style="font-size: 0.95rem; color: var(--gray-dark); margin-bottom: 2rem;">For photographers ready
+                        to stop missing opportunities.</p>
                     <ul class="package-features">
-                        <li>1 reel per week</li>
+                        <li>2 reel per week</li>
                         <li>2 supporting posts per week</li>
                         <li>Basic DM & inquiry support</li>
                         <li>Lead filtering + inbox monitoring</li>
@@ -1564,17 +1562,19 @@
                 <!-- Growth Pro -->
                 <div class="package-card fade-in"
                     style="border-color: var(--accent); transform: scale(1.05); background: #fdfdfd; box-shadow: 0 20px 40px rgba(122, 0, 22, 0.05); z-index: 10;">
-                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 0.4rem 1.2rem; font-family: 'Sometype Mono', monospace; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 0;">
+                    <div
+                        style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 0.4rem 1.2rem; font-family: 'Sometype Mono', monospace; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 0;">
                         Most Popular
                     </div>
                     <span class="package-name" style="color: var(--accent); font-weight: 700;">Growth Pro</span>
                     <div class="package-price">
-                         £350<span style="font-size: 1rem; color: var(--gray-dark);">/mo</span>
+                        £350<span style="font-size: 1rem; color: var(--gray-dark);">/mo</span>
                     </div>
-                    <p style="font-size: 0.95rem; color: var(--gray-dark); margin-bottom: 2rem;">For photographers who want consistent content + full control over inquiries.</p>
+                    <p style="font-size: 0.95rem; color: var(--gray-dark); margin-bottom: 2rem;">For photographers who
+                        want consistent content + full control over inquiries.</p>
                     <ul class="package-features">
-                        <li>2 reels per week</li>
-                        <li>3 supporting posts per week</li>
+                        <li> 4 reels per week</li>
+                        <li>2 supporting posts per week</li>
                         <li>Full DM & email handling</li>
                         <li>Booking coordination</li>
                     </ul>
@@ -1584,8 +1584,11 @@
                 <div class="package-card fade-in">
                     <span class="package-name">Custom / Scale</span>
                     <div class="package-price">Custom</div>
-                    <p style="font-family: 'Sometype Mono', monospace; font-size: 0.8rem; color: var(--accent); margin-top: -1.5rem; margin-bottom: 2rem; font-weight: 700; text-transform: uppercase;">Built for volume</p>
-                    <p style="font-size: 0.95rem; color: var(--gray-dark); margin-bottom: 2rem;">The complete operations & content engine for studios.</p>
+                    <p
+                        style="font-family: 'Sometype Mono', monospace; font-size: 0.8rem; color: var(--accent); margin-top: -1.5rem; margin-bottom: 2rem; font-weight: 700; text-transform: uppercase;">
+                        Built for volume</p>
+                    <p style="font-size: 0.95rem; color: var(--gray-dark); margin-bottom: 2rem;">The complete operations
+                        & content engine for studios.</p>
                     <ul class="package-features">
                         <li>Unlimited content creation</li>
                         <li>Full social management</li>
@@ -1598,23 +1601,36 @@
 
             <!-- Add-ons Section -->
             <div style="margin-top: 6rem; padding-top: 4rem; border-top: 1px solid var(--gray-medium);">
-                <h3 style="font-family: 'Sometype Mono', monospace; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 2.5rem; text-align: center; font-weight: 700;">Add-ons — bolt on to any plan</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; background: var(--gray-light); padding: 3rem; text-align: center;">
+                <h3
+                    style="font-family: 'Sometype Mono', monospace; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 2.5rem; text-align: center; font-weight: 700;">
+                    Add-ons: bolt on to any plan</h3>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; background: var(--gray-light); padding: 3rem; text-align: center;">
                     <div>
                         <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Extra reel</p>
-                        <p style="font-family: 'Sometype Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 700;">+$50 each</p>
+                        <p
+                            style="font-family: 'Sometype Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 700;">
+                            +$50 each</p>
                     </div>
                     <div style="border-left: 1px solid var(--gray-medium);">
-                        <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Portfolio / website update</p>
-                        <p style="font-family: 'Sometype Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 700;">+$150–300</p>
+                        <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Portfolio / website
+                            update</p>
+                        <p
+                            style="font-family: 'Sometype Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 700;">
+                            +$150–300</p>
                     </div>
                     <div style="border-left: 1px solid var(--gray-medium);">
                         <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Landing page build</p>
-                        <p style="font-family: 'Sometype Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 700;">+$200–500</p>
+                        <p
+                            style="font-family: 'Sometype Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 700;">
+                            +$200–500</p>
                     </div>
                     <div style="border-left: 1px solid var(--gray-medium);">
-                        <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Pinterest strategy + pinning</p>
-                        <p style="font-family: 'Sometype Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 700;">+$75/mo</p>
+                        <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Pinterest strategy +
+                            pinning</p>
+                        <p
+                            style="font-family: 'Sometype Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 700;">
+                            +$75/mo</p>
                     </div>
                 </div>
             </div>
@@ -1626,29 +1642,54 @@
     <section id="proposal" class="cta">
         <div class="container">
             <h2 class="section-title">Want to See This on Your Own Work?</h2>
-            <p class="cta-description">Send us your latest gallery—we’ll turn it into a reel so you can see exactly how it works.</p>
+            <p class="cta-description">Send us your latest gallery and we'll turn it into a reel so you can see exactly
+                how it works.</p>
             <div class="cta-form fade-in">
                 <form id="proposal-form" action="https://formspree.io/f/xrekvkkp" method="POST">
                     <input type="text" name="_honey" style="display:none">
                     <div id="form-status"
                         style="display: none; padding: 1rem; margin-bottom: 1rem; border-radius: 4px; font-family: 'Inter', sans-serif; font-weight: 600;">
                     </div>
-                    <div class="form-group">
-                        <label for="name" class="mono">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" required placeholder="Your name">
+                    
+                    <div class="form-group" style="text-align: left;">
+                        <label for="name" class="mono">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required placeholder="First and Last Name">
                     </div>
-                    <div class="form-group">
-                        <label for="email" class="mono">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" required
-                            placeholder="Your email">
+
+                    <div class="form-group" style="text-align: left;">
+                        <label for="email" class="mono">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="you@example.com">
                     </div>
-                    <div class="form-group">
-                        <label for="project" class="mono">Link to Gallery</label>
-                        <textarea id="project" name="message" class="form-control"
-                            placeholder="Paste your Dropbox, Pixieset, or Google Drive link here..." required></textarea>
+
+                    <div class="form-group" style="text-align: left;">
+                        <label for="instagram" class="mono">Instagram Handle</label>
+                        <input type="text" id="instagram" name="instagram" class="form-control" placeholder="@yourhandle" required>
                     </div>
-                    <button type="submit" class="btn">Get Your Free Sample</button>
-                    <p style="margin-top: 1.5rem; font-family: 'Sometype Mono', monospace; font-size: 0.8rem; color: var(--gray-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+
+                    <div class="form-group" style="text-align: left;">
+                        <label for="interest" class="mono">What do you need help with?</label>
+                        <select id="interest" name="interest" class="form-control" style="appearance: none; background: url('data:image/svg+xml;utf8,<svg fill=%22black%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/><path d=%22M0 0h24v24H0z%22 fill=%22none%22/></svg>') no-repeat 98% center; background-color: var(--white); cursor: pointer;" required>
+                            <option value="" disabled selected>Select an option...</option>
+                            <option value="Reel Creation">Reel Creation</option>
+                            <option value="Inbox and DM Management">Inbox & DM Management</option>
+                            <option value="Full Social Media Management">Full Social Media Management</option>
+                            <option value="Not sure yet, let's chat">I'm not sure yet, let's chat</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="text-align: left;">
+                        <label for="project" class="mono">Link to a Recent Gallery (Optional)</label>
+                        <input type="url" id="project" name="gallery_link" class="form-control" placeholder="Drop a Pixieset, Dropbox, or Google Drive link...">
+                    </div>
+
+                    <div class="form-group" style="text-align: left;">
+                        <label for="message" class="mono">What's your biggest bottleneck?</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="e.g. I hate editing reels, I take too long to reply to DMs..." rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Get Your Free Sample</button>
+                    <p
+                        style="margin-top: 1.5rem; font-family: 'Sometype Mono', monospace; font-size: 0.8rem; color: var(--gray-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
                         No obligation. Just the work.<br>
                         "Built for photographers who are already in demand."
                     </p>
@@ -1660,15 +1701,20 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-                <div class="footer-social" style="display: flex; gap: 1.5rem; margin-bottom: 2rem; justify-content: center;">
-                    <a href="#" style="color: rgba(255,255,255,0.4); font-size: 1.2rem; transition: color 0.3s ease;"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" style="color: rgba(255,255,255,0.4); font-size: 1.2rem; transition: color 0.3s ease;"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-                <p class="copyright" style="margin-bottom: 0.5rem;">© 2026 Assistlens. All rights reserved.</p>
-                <div class="footer-signature" style="margin-bottom: 2rem;">Systems for Scaling.</div>
-                <div style="font-family: 'Sometype Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.2);">
-                    Powered by <a href="https://fotofolio.pages.dev/" target="_blank" style="color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.3s ease;">Fotofolio</a>
-                </div>
+            <div class="footer-social"
+                style="display: flex; gap: 1.5rem; margin-bottom: 2rem; justify-content: center;">
+                <a href="#" style="color: rgba(255,255,255,0.4); font-size: 1.2rem; transition: color 0.3s ease;"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" style="color: rgba(255,255,255,0.4); font-size: 1.2rem; transition: color 0.3s ease;"><i
+                        class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p class="copyright" style="margin-bottom: 0.5rem;">© 2026 Assistlens. All rights reserved.</p>
+            <div class="footer-signature" style="margin-bottom: 2rem;">Systems for Scaling.</div>
+            <div
+                style="font-family: 'Sometype Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.2);">
+                Powered by <a href="https://fotofolio.pages.dev/" target="_blank"
+                    style="color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.3s ease;">Fotofolio</a>
+            </div>
         </div>
     </footer>
 
@@ -1712,10 +1758,10 @@
                 const originalText = submitBtn.textContent;
                 submitBtn.textContent = 'Sending...';
                 try {
-                    const response = await fetch(proposalForm.action, { 
-                        method: 'POST', 
-                        body: new FormData(proposalForm), 
-                        headers: { 'Accept': 'application/json' } 
+                    const response = await fetch(proposalForm.action, {
+                        method: 'POST',
+                        body: new FormData(proposalForm),
+                        headers: { 'Accept': 'application/json' }
                     });
                     if (response.ok) {
                         formStatus.textContent = '✓ Request sent. We will reach out shortly.';
