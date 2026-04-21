@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Project Agreement — AssistLens</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --black: #010101;
+      --gray-light: #f8f9fa;
+      --gray-medium: #dee2e6;
+      --gray-dark: #6c757d;
+      --accent: #7A0016;
+      --bg-dark: #38000A;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: #f0f2f5;
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* ── Instructions Bar ── */
+    .instructions {
+      background: var(--bg-dark);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      max-width: 820px;
+      width: 100%;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .instructions-text h4 { font-size: 0.95rem; margin-bottom: 2px; }
+    .instructions-text p { font-size: 0.8rem; opacity: 0.8; }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-body);
+    }
+    .btn-share { background: #0066cc; color: white; }
+    .btn-print { background: var(--accent); color: white; }
+
+    /* ── Contract Paper ── */
+    .contract {
+      background: var(--white);
+      max-width: 820px;
+      width: 100%;
+      padding: 80px 80px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .contract::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: var(--accent);
+    }
+
+    /* Header */
+    .contract-header {
+      border-bottom: 1px solid var(--gray-medium);
+      padding-bottom: 35px;
+      margin-bottom: 45px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .header-left h1 { font-family: var(--font-display); font-size: 2.6rem; font-weight: 400; }
+    .header-right { text-align: right; font-size: 0.85rem; color: var(--gray-dark); }
+
+    /* Sections */
+    .section { margin-bottom: 40px; }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--bg-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--gray-medium); }
+    .section-num {
+      font-size: 0.7rem; color: var(--accent); background: #fff0f2;
+      padding: 2px 8px; border-radius: 4px;
+    }
+
+    /* Fields */
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 15px; }
+    .field-row.three { grid-template-columns: 1fr 1fr 1fr; }
+    .field-row.full { grid-template-columns: 1fr; }
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-dark); font-weight: 700; }
+    
+    .field input, .field textarea {
+      border: none; border-bottom: 1.5px solid var(--gray-medium);
+      padding: 8px 0; font-size: 1rem; font-family: var(--font-body);
+      outline: none; background: transparent; width: 100%;
+    }
+
+    /* Scope List */
+    .scope-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    .scope-list li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+    .scope-list input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); }
+
+    /* Policy text */
+    .policy { font-size: 0.85rem; color: #555; background: #fafafa; padding: 15px; border-left: 3px solid var(--accent); line-height: 1.6; margin-top: 10px; }
+
+    /* Acceptance Box */
+    .acceptance-box {
+      margin-top: 50px; padding: 40px; border: 2px solid var(--accent);
+      background: #fffafa; text-align: center; border-radius: 8px;
+    }
+    .checkbox-container { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 20px 0; cursor: pointer; }
+    .checkbox-container input { width: 24px; height: 24px; accent-color: var(--accent); }
+
+    /* Client Mode Overrides */
+    body.is-client .instructions { display: none; }
+    body.is-client input:not(#client-accept), body.is-client textarea { border-bottom: 1.5px solid transparent !important; pointer-events: none; }
+
+    @media print {
+      body { background: white; padding: 0; margin: 0; }
+      .instructions, .btn { display: none !important; }
+      .contract { box-shadow: none; padding: 40px 60px; max-width: 100%; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="instructions">
+    <div class="instructions-text">
+      <h4>Contract Editor</h4>
+      <p>Fill details, then click "Share Link" to send to client.</p>
+    </div>
+    <div class="action-buttons">
+      <button class="btn btn-share" onclick="generateLink()">Get Share Link</button>
+      <button class="btn btn-print" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </div>
+
+  <div class="contract">
+    <div class="contract-header">
+      <div class="header-left">
+        <h1>Service Agreement</h1>
+      </div>
+      <div class="header-right">
+        <p><strong>Date:</strong> <span id="current-date"></span></p>
+        <p><strong>ID:</strong> <span contenteditable="true" id="field-id">#AL-2024-001</span></p>
+      </div>
+    </div>
+
+    <!-- 01 Parties -->
+    <div class="section">
+      <div class="section-title"><span class="section-num">01</span> Parties</div>
+      <div class="field-row">
+        <div class="field">
+          <label>Client Full Name</label>
+          <input type="text" id="field-client-name" placeholder="Sofia Reyes" />
+        </div>
+        <div class="field">
+          <label>Designer / Studio</label>
+          <input type="text" id="field-studio" value="AssistLens" />
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Client Email</label>
+          <input type="text" id="field-client-email" placeholder="client@email.com" />
+        </div>
+        <div class="field">
+          <label>Project Name</label>
+          <input type="text" id="field-project-name" placeholder="e.g. Photography Portfolio" />
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 Scope -->
+    <div class="section">
+      <div class="section-title"><span class="section-num">02</span> Scope of Work</div>
+      <ul class="scope-list">
+        <li><input type="checkbox" checked /><span>Custom website design &amp; development</span></li>
+        <li><input type="checkbox" checked /><span>Mobile-responsive layout</span></li>
+        <li><input type="checkbox" checked /><span>Inquiry / contact form setup</span></li>
+        <li><input type="checkbox" checked /><span>Image &amp; content integration</span></li>
+        <li><input type="checkbox" /><span>Basic SEO setup</span></li>
+        <li><input type="checkbox" /><span>Gallery / portfolio pages</span></li>
+        <li><input type="checkbox" /><span>Blog setup</span></li>
+        <li><input type="checkbox" /><span>E-commerce / booking integration</span></li>
+      </ul>
+      <div class="field-row full">
+        <div class="field">
+          <label>Additional Notes / Custom Scope</label>
+          <textarea id="field-scope-notes" rows="1" placeholder="Describe extra deliverables..." oninput="this.style.height='';this.style.height=this.scrollHeight+'px'"></textarea>
+        </div>
+      </div>
+      <div class="policy">
+        Anything not explicitly listed above is <strong>not included</strong> in this agreement. Additional scope will require a separate quote.
+      </div>
+    </div>
+
+    <!-- 03 Timeline -->
+    <div class="section">
+      <div class="section-title"><span class="section-num">03</span> Timeline</div>
+      <div class="field-row three">
+        <div class="field">
+          <label>Est. Start Date</label>
+          <input type="text" id="field-start" placeholder="TBD" />
+        </div>
+        <div class="field">
+          <label>First Draft</label>
+          <input type="text" id="field-draft" placeholder="e.g. 10 Days" />
+        </div>
+        <div class="field">
+          <label>Final Delivery</label>
+          <input type="text" id="field-final" placeholder="e.g. 3 Weeks" />
+        </div>
+      </div>
+      <div class="policy">
+        All dates are estimates and depend on the client providing content and feedback on time.
+      </div>
+    </div>
+
+    <!-- 04 Payment -->
+    <div class="section">
+      <div class="section-title"><span class="section-num">04</span> Payment Terms</div>
+      <div class="field-row three">
+        <div class="field">
+          <label>Total Cost ($)</label>
+          <input type="text" id="field-total-cost" placeholder="$0.00" />
+        </div>
+        <div class="field">
+          <label>Deposit (to start)</label>
+          <input type="text" id="field-deposit" placeholder="50%" />
+        </div>
+        <div class="field">
+          <label>Balance (pre-launch)</label>
+          <input type="text" id="field-balance" placeholder="50%" />
+        </div>
+      </div>
+      <div class="policy">
+        No final files or live website access will be handed over until <strong>full payment is received</strong>. Payment confirms acceptance of these terms.
+      </div>
+    </div>
+
+    <!-- 05 Revisions -->
+    <div class="section">
+      <div class="section-title"><span class="section-num">05</span> Revisions</div>
+      <div class="field-row">
+        <div class="field">
+          <label>Included Rounds</label>
+          <input type="text" id="field-rev-rounds" value="2" />
+        </div>
+        <div class="field">
+          <label>Additional Rate ($/hr)</label>
+          <input type="text" id="field-rev-rate" value="$50" />
+        </div>
+      </div>
+      <div class="policy">
+        A revision round is one list of feedback. Scope changes are not revisions and will be quoted separately.
+      </div>
+    </div>
+
+    <!-- 06 Responsibilities -->
+    <div class="section">
+      <div class="section-title"><span class="section-num">06</span> Client Responsibilities</div>
+      <div class="policy">
+        The client agrees to supply all content (text, images) within <strong>3 days</strong> of project start. If client is unresponsive for <strong>14 days</strong>, the project may be closed and deposit kept.
+      </div>
+    </div>
+
+    <!-- 07 Ownership -->
+    <div class="section">
+      <div class="section-title"><span class="section-num">07</span> Ownership &amp; Rights</div>
+      <div class="policy">
+        Full ownership transfers to the client upon full payment. The designer retains the right to display the project in their portfolio.
+      </div>
+    </div>
+
+    <!-- 08 Maintenance -->
+    <div class="section">
+      <div class="section-title"><span class="section-num">08</span> Post-Launch Updates &amp; Maintenance</div>
+      <p style="font-size:0.86rem; color:var(--gray-dark); margin-bottom:14px; line-height:1.6;">
+        The agreed project price covers the initial build and delivery only. Any changes, updates, additions, or edits requested <strong>after the website goes live</strong> are not included and will be handled under a monthly retainer.
+      </p>
+      <div class="field-row">
+        <div class="field">
+          <label>Monthly Retainer Rate ($)</label>
+          <input type="text" id="field-retainer" placeholder="e.g. 30" />
+        </div>
+        <div class="field">
+          <label>What's Included Per Month</label>
+          <input type="text" id="field-support" placeholder="e.g. up to 2 update requests, minor edits" />
+        </div>
+      </div>
+      <div class="policy">
+        Post-launch updates include (but are not limited to): text changes, image swaps, adding new pages, layout adjustments, and plugin/platform updates. The client must be on an active retainer to request changes. Work outside the retainer scope will be quoted separately.
+      </div>
+    </div>
+
+    <!-- 09 Cancellation -->
+    <div class="section">
+      <div class="section-title"><span class="section-num">10</span> Cancellation</div>
+      <div class="policy">
+        The deposit is <strong>non-refundable</strong> once work starts. Cancellations mid-project will be billed at a prorated rate for work finished.
+      </div>
+    </div>
+
+    <!-- Acceptance -->
+    <div class="acceptance-box">
+      <div class="section-title" style="justify-content: center;"><span class="section-num">FINAL</span> Agreement</div>
+      <p style="font-size: 0.9rem; margin-top: 15px;">By ticking the box below, both parties confirm they agree to all listed terms.</p>
+      <label class="checkbox-container">
+        <input type="checkbox" id="client-accept" />
+        <span style="font-weight: 600;">I Accept all terms and conditions of this agreement.</span>
+      </label>
+      <div id="client-info-fields" style="display: none; margin-top: 10px; color: var(--accent); font-style: italic;">
+        Accepted on <span id="accepted-date"></span>
+      </div>
+    </div>
+
+    <div style="margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--gray-medium); display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--gray-dark);">
+      <span>assistlens.pages.dev</span>
+      <span>Confidential Service Agreement</span>
+    </div>
+
+  </div>
+
+  <script>
+    const now = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('current-date').innerText = now;
+
+    const fields = ['field-id', 'field-client-name', 'field-studio', 'field-client-email', 'field-project-name', 'field-scope-notes', 'field-start', 'field-draft', 'field-final', 'field-total-cost', 'field-deposit', 'field-balance', 'field-rev-rounds', 'field-rev-rate', 'field-retainer', 'field-support'];
+
+    function generateLink() {
+      const p = new URLSearchParams();
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        p.set(id, el.value || (el.innerText && el.contentEditable==='true' ? el.innerText : ''));
+      });
+      p.set('mode', 'client');
+      const url = window.location.origin + window.location.pathname + '?' + p.toString();
+      navigator.clipboard.writeText(url).then(() => alert("Link Copied! Send this to your client."));
+    }
+
+    window.addEventListener('load', () => {
+      const p = new URLSearchParams(window.location.search);
+      if (p.get('mode') === 'client') {
+        document.body.classList.add('is-client');
+        fields.forEach(id => {
+          const v = p.get(id);
+          if (v) {
+            const el = document.getElementById(id);
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.value = v; else el.innerText = v;
+          }
+        });
+        document.getElementById('client-accept').addEventListener('change', function() {
+          document.getElementById('client-info-fields').style.display = this.checked ? 'block' : 'none';
+          document.getElementById('accepted-date').innerText = new Date().toLocaleDateString();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
