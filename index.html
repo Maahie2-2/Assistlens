@@ -1319,6 +1319,20 @@
                 gap: 4rem;
             }
         }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: stretch;
+        }
+
+        @media (max-width: 968px) {
+            .split-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+        }
     </style>
 </head>
 
@@ -1355,10 +1369,9 @@
         </div>
         <div class="container">
             <div class="hero-content fade-in">
-                <h1>Your galleries are sitting there doing nothing.</h1>
+                <h1>Turn your wedding galleries into reels that get you booked.</h1>
                 <div class="hero-description">
-                    <p>Let's fix that. We turn your photos into reels that actually get you booked, then handle the DMs
-                        that follow.</p>
+                    <p>We help photographers turn past weddings into inquiry-generating content in 48 hours.</p>
                 </div>
                 <div class="hero-btns">
                     <a href="#proposal" class="btn"
@@ -1380,16 +1393,67 @@
 
 
     <!-- The Problem Section -->
-    <section id="how-it-works" class="problem-section">
+    <!-- The Problem & Solution Section -->
+    <section id="how-it-works" class="problem-section" style="padding: 10rem 0;">
         <div class="container">
-            <div class="problem-inner fade-in">
-                <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 2rem; line-height: 1.1;">You're a great
-                    photographer.<br>You're just not posting.</h2>
-                <div class="problem-body">
-                    <p>Not because you don't want to. Because editing reels takes time you don't have, and you don't
-                        know what's trending, and by the time you sit down to do it, you're exhausted.</p>
-                    <p>So the gallery sits. The feed goes quiet. And the clients book someone else.</p>
-                    <p class="problem-kicker">That's the only thing standing between you and a full calendar.</p>
+            <div class="split-grid">
+                <!-- Left: Problem -->
+                <div class="fade-in">
+                    <span class="mono" style="color: var(--accent); margin-bottom: 2rem; display: block; font-weight: 700;">The Problem</span>
+                    <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 2.5rem; line-height: 1.1;">Your work isn’t the problem.<br>Your visibility is.</h2>
+                    <div class="problem-body">
+                        <p style="font-size: 1.25rem;">You’re already shooting beautiful weddings.</p>
+                        <p style="margin-bottom: 2.5rem; font-size: 1.25rem;">But after delivery…</p>
+                        
+                        <div style="margin-bottom: 3.5rem; display: flex; flex-direction: column; gap: 1.2rem;">
+                            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                                <span style="color: var(--accent); font-weight: 700;">—</span>
+                                <span style="font-size: 1.15rem; font-weight: 300; color: var(--gray-dark);">galleries sit unused</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                                <span style="color: var(--accent); font-weight: 700;">—</span>
+                                <span style="font-size: 1.15rem; font-weight: 300; color: var(--gray-dark);">posting feels inconsistent</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                                <span style="color: var(--accent); font-weight: 700;">—</span>
+                                <span style="font-size: 1.15rem; font-weight: 300; color: var(--gray-dark);">reels take too long to edit</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                                <span style="color: var(--accent); font-weight: 700;">—</span>
+                                <span style="font-size: 1.15rem; font-weight: 300; color: var(--gray-dark);">and inquiries slow down</span>
+                            </div>
+                        </div>
+
+                        <p class="problem-kicker" style="font-size: 1.15rem !important; border-left: 2px solid var(--accent); padding-left: 1.5rem;">So your work stays hidden while others stay booked.</p>
+                    </div>
+                </div>
+
+                <!-- Right: Solution -->
+                <div class="fade-in" style="background: var(--gray-light); padding: 4rem; border-radius: 30px; border: 1px solid var(--gray-medium); display: flex; flex-direction: column;">
+                    <span class="mono" style="color: var(--accent); margin-bottom: 2rem; display: block; font-weight: 700;">The Solution</span>
+                    <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 2.5rem; line-height: 1.2; font-family: 'Playfair Display', serif;">Your existing work is already your marketing.</h2>
+                    <div class="problem-body" style="flex-grow: 1;">
+                        <p class="problem-kicker" style="font-size: 1.35rem !important; margin-bottom: 3rem !important; line-height: 1.4;">
+                            We help photographers turn past weddings into inquiry-generating content in 48 hours.
+                        </p>
+                        
+                        <p style="margin-bottom: 2rem; color: var(--black); font-weight: 500;">We turn what you already have into:</p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                                <span style="color: var(--accent); font-size: 1.5rem;">•</span>
+                                <span style="font-size: 1.1rem; font-weight: 300; color: var(--gray-dark);">short-form reels</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                                <span style="color: var(--accent); font-size: 1.5rem;">•</span>
+                                <span style="font-size: 1.1rem; font-weight: 300; color: var(--gray-dark);">scroll-stopping highlights</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1.5rem;">
+                                <span style="color: var(--accent); font-size: 1.5rem;">•</span>
+                                <span style="font-size: 1.1rem; font-weight: 300; color: var(--gray-dark);">content that stays active on your profile</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1574,8 +1638,38 @@
     </section>
 
 
+    <!-- FAQ Section -->
+    <section id="faq" class="faq" style="padding: 10rem 0; background-color: var(--white);">
+        <div class="container" style="max-width: 800px;">
+            <span class="mono" style="color: var(--accent); margin-bottom: 2rem; display: block; font-weight: 700; text-align: center;">FAQ</span>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 5rem;">Common Questions</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 3.5rem;">
+                <div class="faq-item fade-in">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--black);">Do I need new shoots for this?</h3>
+                    <p style="color: var(--gray-dark); line-height: 1.7; font-size: 1.1rem; font-weight: 300;">No. We use your existing galleries to create content that actually gets seen.</p>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--black);">How fast is delivery?</h3>
+                    <p style="color: var(--gray-dark); line-height: 1.7; font-size: 1.1rem; font-weight: 300;">Usually within 48 hours.</p>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--black);">Do you manage posting?</h3>
+                    <p style="color: var(--gray-dark); line-height: 1.7; font-size: 1.1rem; font-weight: 300;">Yes, depending on your plan.</p>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--black);">Will this guarantee bookings?</h3>
+                    <p style="color: var(--gray-dark); line-height: 1.7; font-size: 1.1rem; font-weight: 300;">No one can guarantee bookings. But we do ensure your work is consistently visible in front of the right audience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA Section -->
-    <section id="proposal" class="cta">
+    <section id="proposal" class="cta" style="border-top: 1px solid var(--gray-medium);">
         <div class="container">
             <h2 class="section-title">Want to See This on Your Own Work?</h2>
             <p class="cta-description">Send us your latest gallery and we'll turn it into a reel so you can see exactly
