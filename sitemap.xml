@@ -7,7 +7,7 @@
   <!-- Homepage — highest priority -->
   <url>
     <loc>https://assistlens.pages.dev/</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
   <!-- Work / Portfolio page -->
   <url>
     <loc>https://assistlens.pages.dev/seemywork.html</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -23,7 +23,7 @@
   <!-- Websites page -->
   <url>
     <loc>https://assistlens.pages.dev/website.html</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
